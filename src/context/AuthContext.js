@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import { authService } from '../services/api';
+import { tokenHelpers, STORAGE_KEYS, storage } from '../utils';
 
 const AuthContext = createContext(null);
 
@@ -9,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
 
-  // Clear any error messages after 5 seconds
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => setError(null), 5000);
@@ -24,18 +24,16 @@ export const AuthProvider = ({ children }) => {
       return response.data;
     } catch (err) {
       console.error('Failed to fetch user profile:', err);
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
+      tokenHelpers.clearTokens();
       setUser(null);
       return null;
     }
   }, []);
 
   useEffect(() => {
-    // Check if user is logged in on page load
     const checkLoggedIn = async () => {
       setLoading(true);
-      const token = localStorage.getItem('accessToken');
+      const token = tokenHelpers.getAccessToken();
       
       if (token) {
         await fetchUserProfile();
@@ -56,17 +54,14 @@ export const AuthProvider = ({ children }) => {
       const response = await authService.login(email, password);
       const { access_token, refresh_token } = response.data;
       
-      localStorage.setItem('accessToken', access_token);
-      localStorage.setItem('refreshToken', refresh_token);
+      tokenHelpers.setTokens(access_token, refresh_token);
       
-      // Fetch user profile after login
       const userData = await fetchUserProfile();
       setLoading(false);
       return !!userData;
     } catch (err) {
       setLoading(false);
       
-      // Better error handling
       let errorMessage = 'Login failed. Please try again.';
       
       if (err.code === 'NETWORK_ERROR' || err.message === 'Network Error') {
@@ -87,10 +82,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = useCallback(() => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
+    tokenHelpers.clearTokens();
     setUser(null);
-    // Don't remove remembered email as that's a user preference
   }, []);
 
   const register = async (userData) => {
@@ -112,9 +105,6 @@ export const AuthProvider = ({ children }) => {
     try {
       setError(null);
       setLoading(true);
-      // This would need to be implemented in your API service
-      // const response = await userService.updateProfile(userData);
-      // setUser(response.data);
       setLoading(false);
       return true;
     } catch (err) {
