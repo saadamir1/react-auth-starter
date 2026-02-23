@@ -364,6 +364,26 @@
   font-family: 'Courier New', monospace;
 }
 
+/* Navbar logo */
+.nav-logo {
+  height: 48px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.brand-text {
+  vertical-align: middle;
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 34px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .page-header {

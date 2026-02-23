@@ -35,11 +35,12 @@ const Home = () => {
     return (
       <div className="auth-container">
         <div className="auth-card">
-          <div className="auth-icon">🕌</div>
-          <h2>Mushaf Platform</h2>
-          <p style={{ textAlign: 'center', color: 'var(--gray-color)', marginBottom: '2rem' }}>
-            Digital Quran with Urdu Translation
-          </p>
+          <div style={{ textAlign: 'center' }}>
+            <div className="auth-icon">🕌</div>
+            <p style={{ textAlign: 'center', color: 'var(--gray-color)', marginBottom: '2rem' }}>
+              Mushaf Platform — Digital Quran with Urdu Translation
+            </p>
+          </div>
           <Button as={Link} to="/login" variant="primary" size="lg" fullWidth>
             Login to Continue
           </Button>

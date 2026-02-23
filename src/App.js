@@ -24,20 +24,20 @@ function App() {
           <AuthProvider>
             <Suspense fallback={<Loader />}>
               <Layout>
-            <Routes>
-              <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-              <Route path="/surah/:number" element={<PrivateRoute><SurahReader /></PrivateRoute>} />
-              <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
-              <Route path="/bookmarks" element={<PrivateRoute><Bookmarks /></PrivateRoute>} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="/verify-email" element={<VerifyEmail />} />
-              <Route path="/404" element={<NotFound />} />
-              <Route path="*" element={<Navigate to="/404" replace />} />
-            </Routes>
-            </Layout>
-          </Suspense>
-        </AuthProvider>
+                <Routes>
+                  <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+                  <Route path="/surah/:number" element={<PrivateRoute><SurahReader /></PrivateRoute>} />
+                  <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
+                  <Route path="/bookmarks" element={<PrivateRoute><Bookmarks /></PrivateRoute>} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route path="/verify-email" element={<VerifyEmail />} />
+                  <Route path="/404" element={<NotFound />} />
+                  <Route path="*" element={<Navigate to="/404" replace />} />
+                </Routes>
+              </Layout>
+            </Suspense>
+          </AuthProvider>
         </ThemeProvider>
       </Router>
     </ErrorBoundary>

@@ -15,7 +15,15 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-brand">
-          <Link to="/">🕌 Mushaf Platform</Link>
+          <Link to="/">
+            <img
+              src="/logo.png"
+              alt="Mushaf Platform"
+              className="nav-logo"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
+            <span className="brand-text">Mushaf Platform</span>
+          </Link>
           <button
             className={`hamburger ${mobileMenuOpen ? "active" : ""}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
