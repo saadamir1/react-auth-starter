@@ -90,7 +90,7 @@ const Register = () => {
     return (
         <div className="auth-container">
             <div className="auth-card modern">
-                <div className="auth-icon">🕌</div>
+                <img src="/logo.png" alt="Mushaf Platform" className="auth-logo" />
                 <h2>Create Account</h2>
                 <p className="auth-subtitle">Join us on your Quran journey</p>
 

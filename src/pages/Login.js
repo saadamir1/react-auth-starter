@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card modern">
-        <div className="auth-icon">🕌</div>
+        <img src="/logo.png" alt="Mushaf Platform" className="auth-logo" />
         <h2>Welcome Back</h2>
         <p className="auth-subtitle">Sign in to continue your Quran journey</p>
 

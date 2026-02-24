@@ -36,7 +36,7 @@ const Home = () => {
       <div className="auth-container">
         <div className="auth-card">
           <div style={{ textAlign: 'center' }}>
-            <div className="auth-icon">🕌</div>
+            <img src="/logo.png" alt="Mushaf Platform" className="auth-logo" />
             <p style={{ textAlign: 'center', color: 'var(--gray-color)', marginBottom: '2rem' }}>
               Mushaf Platform — Digital Quran with Urdu Translation
             </p>
