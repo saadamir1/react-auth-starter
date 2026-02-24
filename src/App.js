@@ -15,6 +15,8 @@ const Login = React.lazy(() => import("./pages/Login"));
 const Register = React.lazy(() => import("./pages/Register"));
 const ResetPassword = React.lazy(() => import("./pages/ResetPassword"));
 const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
+const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"));
+const Profile = React.lazy(() => import("./pages/Profile"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 function App() {
@@ -30,8 +32,10 @@ function App() {
                   <Route path="/surah/:number" element={<PrivateRoute><SurahReader /></PrivateRoute>} />
                   <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
                   <Route path="/bookmarks" element={<PrivateRoute><Bookmarks /></PrivateRoute>} />
+                  <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="/verify-email" element={<VerifyEmail />} />
                   <Route path="/404" element={<NotFound />} />

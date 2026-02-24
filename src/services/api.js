@@ -83,6 +83,8 @@ export const userService = {
   getUserProfile: () => api.get('/users/profile'),
   getUserById: (id) => api.get(`/users/${id}`),
   updateUser: (id, userData) => api.patch(`/users/${id}`, userData),
+  updateProfile: (userData) => api.patch('/users/profile', userData),
+  changePassword: (passwordData) => api.patch('/users/change-password', passwordData),
   deleteUser: (id) => api.delete(`/users/${id}`),
 };
 
@@ -153,6 +155,7 @@ export const bookmarkService = {
   getProgress: () => api.get('/bookmarks/progress'),
   updateProgress: (verseId, surahNumber, pageNumber) =>
     api.post('/bookmarks/progress', { verseId, surahNumber, pageNumber }),
+  getBookmarkedVerseIds: () => api.get('/bookmarks/verse-ids'),
 };
 
 export default api;

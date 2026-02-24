@@ -27,8 +27,16 @@ const Register = () => {
             setValidationError("Passwords do not match");
             return false;
         }
-        if (formData.password.length < 4) {
-            setValidationError("Password must be at least 4 characters long");
+        if (formData.password.length < 8) {
+            setValidationError("Password must be at least 8 characters long");
+            return false;
+        }
+        if (formData.password.length > 32) {
+            setValidationError("Password must not exceed 32 characters");
+            return false;
+        }
+        if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
+            setValidationError("Password must contain uppercase, lowercase, and number");
             return false;
         }
         setValidationError("");
@@ -142,9 +150,9 @@ const Register = () => {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                placeholder="••••••••"
+                                placeholder="Min 8 chars, uppercase, lowercase, number"
                                 required
-                                minLength={4}
+                                minLength={8}
                             />
                             <button
                                 type="button"
@@ -165,7 +173,7 @@ const Register = () => {
                                 name="confirmPassword"
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
-                                placeholder="••••••••"
+                                placeholder="Confirm password"
                                 required
                             />
                         </div>
