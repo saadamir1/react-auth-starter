@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAdmin } = useAuth();
   const { isDark, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -160,6 +160,21 @@ const Navbar = () => {
                         <span>👤</span>
                         My Profile
                       </Link>
+
+                      {isAdmin && (
+                        <Link
+                          to="/admin"
+                          className="dropdown-item"
+                          role="menuitem"
+                          onClick={() => {
+                            setUserMenuOpen(false);
+                            setMobileMenuOpen(false);
+                          }}
+                        >
+                          <span>⚙️</span>
+                          Admin Panel
+                        </Link>
+                      )}
 
                       <button
                         onClick={handleLogout}
