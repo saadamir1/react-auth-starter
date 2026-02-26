@@ -117,7 +117,7 @@ const Register = () => {
     return (
         <div className="auth-container">
             <div className="auth-card modern">
-                <img src="/logo.png" alt="My App" className="auth-logo" />
+                <div className="auth-icon">🚀</div>
                 <h2>Create Account</h2>
                 <p className="auth-subtitle">Join us today</p>
 

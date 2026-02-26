@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card modern">
-        <img src="/logo.png" alt="My App" className="auth-logo" />
+        <div className="auth-icon">🚀</div>
         <h2>Welcome Back</h2>
         <p className="auth-subtitle">Sign in to continue</p>
 
