@@ -90,16 +90,6 @@ export const userService = {
   deleteAccount: () => api.delete('/users/account'),
 };
 
-// City services
-export const cityService = {
-  getAllCities: (page = 1, limit = 10) =>
-    api.get(`/cities?page=${page}&limit=${limit}`),
-  getCityById: (id) => api.get(`/cities/${id}`),
-  createCity: (cityData) => api.post('/cities', cityData),
-  updateCity: (id, cityData) => api.patch(`/cities/${id}`, cityData),
-  deleteCity: (id) => api.delete(`/cities/${id}`),
-};
-
 // Upload services
 export const uploadService = {
   uploadImage: (file) => {
@@ -123,41 +113,6 @@ export const uploadService = {
       headers: { 'Content-Type': 'multipart/form-data' }
     });
   },
-  uploadCityImage: (cityId, file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    return api.post(`/upload/city-image/${cityId}`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    });
-  },
-};
-
-// Quran services
-export const quranService = {
-  getSurahs: () => api.get('/quran/surahs'),
-  getSurah: (number) => api.get(`/quran/surahs/${number}`),
-  getSurahVerses: (number, page = 1, limit = 50) =>
-    api.get(`/quran/surahs/${number}/verses?page=${page}&limit=${limit}`),
-  getVerses: (page = 1, limit = 20) =>
-    api.get(`/quran/verses?page=${page}&limit=${limit}`),
-  searchVerses: (query) => api.get(`/quran/search/verses?q=${query}`),
-  getJuz: () => api.get('/quran/juz'),
-  getJuzById: (number) => api.get(`/quran/juz/${number}`),
-};
-
-// Bookmark services
-export const bookmarkService = {
-  getBookmarks: (page = 1, limit = 20) =>
-    api.get(`/bookmarks?page=${page}&limit=${limit}`),
-  createBookmark: (verseId, note) =>
-    api.post('/bookmarks', { verseId, note }),
-  deleteBookmark: (id) => api.delete(`/bookmarks/${id}`),
-  updateNote: (id, note) =>
-    api.patch(`/bookmarks/${id}/note`, { note }),
-  getProgress: () => api.get('/bookmarks/progress'),
-  updateProgress: (verseId, surahNumber, pageNumber) =>
-    api.post('/bookmarks/progress', { verseId, surahNumber, pageNumber }),
-  getBookmarkedVerseIds: () => api.get('/bookmarks/verse-ids'),
 };
 
 export default api;

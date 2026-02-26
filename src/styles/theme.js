@@ -1,4 +1,4 @@
-// Theme constants for Mushaf Platform - Islamic Design
+// Theme constants for the app
 export const COLORS = {
   light: {
     primary: '#0d7377',        // Teal (Islamic architecture)

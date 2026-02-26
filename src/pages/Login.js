@@ -41,9 +41,9 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card modern">
-        <img src="/logo.png" alt="Mushaf Platform" className="auth-logo" />
+        <img src="/logo.png" alt="My App" className="auth-logo" />
         <h2>Welcome Back</h2>
-        <p className="auth-subtitle">Sign in to continue your Quran journey</p>
+        <p className="auth-subtitle">Sign in to continue</p>
 
         {error && (
           <div className="error-message">

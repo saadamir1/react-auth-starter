@@ -117,9 +117,9 @@ const Register = () => {
     return (
         <div className="auth-container">
             <div className="auth-card modern">
-                <img src="/logo.png" alt="Mushaf Platform" className="auth-logo" />
+                <img src="/logo.png" alt="My App" className="auth-logo" />
                 <h2>Create Account</h2>
-                <p className="auth-subtitle">Join us on your Quran journey</p>
+                <p className="auth-subtitle">Join us today</p>
 
                 {(error || validationError) && (
                     <div className="error-message">{error || validationError}</div>

@@ -16,11 +16,11 @@ export const STORAGE_KEYS = {
 // Routes
 export const ROUTES = {
   HOME: '/',
+  DASHBOARD: '/dashboard',
   LOGIN: '/login',
-  SURAH: '/surah/:number',
-  SEARCH: '/search',
-  BOOKMARKS: '/bookmarks',
+  REGISTER: '/register',
   PROFILE: '/profile',
+  ADMIN: '/admin',
   NOT_FOUND: '/404',
 };
 
@@ -29,14 +29,6 @@ export const UI = {
   ITEMS_PER_PAGE: 20,
   DEBOUNCE_DELAY: 300,
   TOAST_DURATION: 5000,
-};
-
-// Quran Constants
-export const QURAN = {
-  TOTAL_SURAHS: 114,
-  TOTAL_VERSES: 6236,
-  TOTAL_JUZ: 30,
-  TOTAL_PAGES: 604,
 };
 
 // User Roles
@@ -59,7 +51,5 @@ export const ERROR_MESSAGES = {
 export const SUCCESS_MESSAGES = {
   LOGIN_SUCCESS: 'Login successful!',
   LOGOUT_SUCCESS: 'Logged out successfully.',
-  BOOKMARK_ADDED: 'Bookmark added successfully.',
-  BOOKMARK_REMOVED: 'Bookmark removed successfully.',
   PROFILE_UPDATED: 'Profile updated successfully.',
 };

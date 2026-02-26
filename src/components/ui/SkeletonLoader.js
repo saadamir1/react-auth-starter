@@ -1,22 +1,14 @@
 import React from 'react';
 
-const SkeletonLoader = ({ count = 6, type = 'surah' }) => {
-  if (type === 'surah') {
-    return (
-      <div className="surah-grid">
-        {Array.from({ length: count }).map((_, i) => (
-          <div key={i} className="surah-card skeleton">
-            <div className="skeleton-line"></div>
-            <div className="skeleton-line short"></div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
+const SkeletonLoader = ({ count = 6 }) => {
   return (
-    <div className="loader-container">
-      <div className="loader"></div>
+    <div className="dashboard-grid">
+      {Array.from({ length: count }).map((_, i) => (
+        <div key={i} className="card skeleton">
+          <div className="skeleton-line"></div>
+          <div className="skeleton-line short"></div>
+        </div>
+      ))}
     </div>
   );
 };
